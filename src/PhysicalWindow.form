@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="PhysicalWindow">
+  <grid id="27dc6" binding="panel2" layout-manager="GridLayoutManager" row-count="6" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="1146" height="786"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="5c155" class="javax.swing.JLabel" binding="labelHead2">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="48" style="1"/>
+          <text value="ทดสอบร่างกาย"/>
+        </properties>
+      </component>
+      <component id="3f8c9" class="javax.swing.JLabel" binding="labelColorBlind">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="20" style="1"/>
+          <text value="ทดสอบตาบอดสี"/>
+        </properties>
+      </component>
+      <component id="85733" class="javax.swing.JLabel" binding="labelfar">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="20" style="1"/>
+          <text value="ทดสอบสายตายาว"/>
+        </properties>
+      </component>
+      <component id="697f0" class="javax.swing.JLabel" binding="labelastm">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="20" style="1"/>
+          <text value="ทดสอบสายตาเอียง"/>
+        </properties>
+      </component>
+      <component id="85d88" class="javax.swing.JLabel" binding="labelrs">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="20" style="1"/>
+          <text value="ทดสอบการตอบสนองของร่างกาย"/>
+        </properties>
+      </component>
+      <component id="d734f" class="javax.swing.JButton" binding="OKbutton2">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="OK"/>
+        </properties>
+      </component>
+      <component id="a720a" class="javax.swing.JRadioButton" binding="colorPass">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="20" style="1"/>
+          <text value="ผ่าน"/>
+        </properties>
+      </component>
+      <component id="58617" class="javax.swing.JRadioButton" binding="colorFail">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="20" style="1"/>
+          <text value="ไม่ผ่าน"/>
+        </properties>
+      </component>
+      <component id="f9d6c" class="javax.swing.JRadioButton" binding="farPass">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="20" style="1"/>
+          <text value="ผ่าน"/>
+        </properties>
+      </component>
+      <component id="638c7" class="javax.swing.JRadioButton" binding="astmPass">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="20" style="1"/>
+          <text value="ผ่าน"/>
+        </properties>
+      </component>
+      <component id="63a40" class="javax.swing.JRadioButton" binding="brPass">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="20" style="1"/>
+          <text value="ผ่าน"/>
+        </properties>
+      </component>
+      <component id="65b09" class="javax.swing.JRadioButton" binding="farFail">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="20" style="1"/>
+          <text value="ไม่ผ่าน"/>
+        </properties>
+      </component>
+      <component id="1357d" class="javax.swing.JRadioButton" binding="astmFail">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="20" style="1"/>
+          <text value="ไม่ผ่าน"/>
+        </properties>
+      </component>
+      <component id="1edba" class="javax.swing.JRadioButton" binding="brFail">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Angsana New" size="20" style="1"/>
+          <text value="ไม่ผ่าน"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
