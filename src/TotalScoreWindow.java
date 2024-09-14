@@ -3,52 +3,54 @@ import java.awt.*;
 
 public class TotalScoreWindow extends JFrame {
     private JPanel panel4;
-    private JTextField bodyTotalTxt;
-    private JTextField theoryTxt;
+    private JTextField nameTxt;
+    private JTextField surnameTxt;
     private JTextField practiceTxt;
-    private JTextField result; // ประกาศตัวแปร result
     private JLabel labelHead;
-    private JLabel labelBody;
-    private JLabel labelTheory;
+    private JLabel firstnamelabel;
+    private JLabel lastnamelabel;
+    private JLabel resultscore;
+    private String firstname;
+    private String lastname;
 
-    // เพิ่ม physicalResult เป็นพารามิเตอร์
-    public TotalScoreWindow(String physicalResult, int theoryScore, String theoryResult) {
+    public TotalScoreWindow(String physicalResult, int theoryScore, String theoryResult, String firstname, String lastname) {
         super("ผลการประเมินการทดสอบ");
+        this.firstname = firstname;
+        this.lastname = lastname;
 
         // Initialize panel
         panel4 = new JPanel();
         panel4.setLayout(new GridLayout(10, 2));
+        panel4.add(labelHead);
 
-        // Initialize text fields with results
-        bodyTotalTxt = new JTextField(physicalResult);  // แสดงผลว่าผ่านหรือไม่ผ่านการทดสอบร่างกาย
-        theoryTxt = new JTextField(String.valueOf(theoryScore));
+        // Create JLabel and JTextField for displaying the name and surname
+        panel4.add(firstnamelabel);
+        nameTxt = new JTextField(firstname);
+        panel4.add(nameTxt);
+        nameTxt.setEditable(false);  // Set text field to non-editable
+
+        panel4.add(lastnamelabel);
+        surnameTxt = new JTextField(lastname);
+        panel4.add(surnameTxt);
+        surnameTxt.setEditable(false);  // Set text field to non-editable
+
+        // Add name and surname to panel
+
+
+        // Create and add result label and text field
+        panel4.add(resultscore);
         practiceTxt = new JTextField(theoryResult);
-        result = new JTextField(); // เพิ่มตัวแปร result
-
-        // Set text fields to non-editable
-        bodyTotalTxt.setEditable(false);
-        theoryTxt.setEditable(false);
         practiceTxt.setEditable(false);
-        result.setEditable(false); // ทำให้ result ไม่แก้ไขได้
 
-        // Adding components to panel
-        panel4.add(labelBody);
-        panel4.add(bodyTotalTxt);
+        panel4.add(resultscore);
+        panel4.add(practiceTxt);
 
-        panel4.add(labelTheory);
-        panel4.add(theoryTxt);
-
-
-        // Add panel to frame
+        // Add panel to the frame
         this.add(panel4);
-        this.setSize(400, 400);
+        this.setSize(800, 500);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
     }
 
-    public static void main(String[] args) {
-        // ตัวอย่างการเรียกใช้ TotalScoreWindow
-        TotalScoreWindow window = new TotalScoreWindow("Pass", 130, "Pass");
-        window.setVisible(true);
-    }
+
 }

@@ -1,10 +1,10 @@
 package Test;
 
 public class TheoryTest {
-
     private int TrafficSignTest = 0;
     private int TrafficLinesTest = 0;
     private int GiveWayTest = 0;
+
 
     public int getTrafficSignTest() {
         return TrafficSignTest;
@@ -29,8 +29,6 @@ public class TheoryTest {
     public void setGiveWayTest(int giveWayTest) {
         GiveWayTest = giveWayTest;
     }
-
-
 
 
 }

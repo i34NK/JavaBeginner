@@ -1,3 +1,4 @@
+import DBConnect.SavePhysicalTest;
 import Test.PhysicalTest;
 
 import javax.swing.*;
@@ -21,14 +22,18 @@ public class PhysicalWindow extends JFrame {
     private JLabel labelfar;
     private JLabel labelastm;
     private JLabel labelrs;
+    private String firstname;
+    private String lastname;
 
-    public PhysicalWindow() {
+    public PhysicalWindow(String firstname,String lastname) {
         super("Physical Test");
+
+        this.firstname = firstname;
+        this.lastname = lastname;
 
         panel2 = new JPanel();
         panel2.setLayout(new GridLayout(10, 2));
 
-        // Initializing labels and radio buttons
 
         panel2.add(labelHead2);
 
@@ -38,7 +43,6 @@ public class PhysicalWindow extends JFrame {
         panel2.add(labelrs);
 
 
-        // Grouping the radio buttons
         ButtonGroup colorBlindGroup = new ButtonGroup();
         colorBlindGroup.add(colorPass);
         colorBlindGroup.add(colorFail);
@@ -55,9 +59,8 @@ public class PhysicalWindow extends JFrame {
         brGroup.add(brPass);
         brGroup.add(brFail);
 
-        // Adding components to panel
         panel2.add(labelHead2);
-        panel2.add(new JLabel("")); // Placeholder for spacing
+        panel2.add(new JLabel(""));
 
         panel2.add(labelColorBlind);
         panel2.add(colorPass);
@@ -79,46 +82,36 @@ public class PhysicalWindow extends JFrame {
         panel2.add(new JLabel(""));
         panel2.add(brFail);
 
-        // Adding OK button
-        OKbutton2 = new JButton("OK");
         panel2.add(OKbutton2);
-        panel2.add(new JLabel("")); // Placeholder for spacing
 
-        // Adding the panel to the frame
+        panel2.add(new JLabel(""));
+
         this.add(panel2);
 
-        // Set window properties
         this.setSize(800, 500);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
 
-        // Adding action listener to the OK button
         OKbutton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Processing the test results
-                PhysicalTest physicalTest = new PhysicalTest();
-                physicalTest.setColorBlindessTest(colorPass.isSelected());
-                physicalTest.setFarsightednessTest(farPass.isSelected());
-                physicalTest.setAstigmatismTest(astmPass.isSelected());
-                physicalTest.setBodyResponseTest(brPass.isSelected());
 
-                // Check if the user passed the physical test
-                boolean passed = physicalTest.estimatePhysicalTest();
-                String physicalResult = passed ? "Pass" : "Failed";
+                boolean colorblindess = colorPass.isSelected();
+                boolean farsight = farPass.isSelected();
+                boolean astigmatism = astmPass.isSelected();
+                boolean bodyresponse = brPass.isSelected();
 
-                // เปิดหน้าต่าง TheoryWindow พร้อมส่งผลการทดสอบภาคปฏิบัติไปด้วย
-                TheoryWindow theoryWindow = new TheoryWindow(physicalResult);
+                SavePhysicalTest.savePhysical(colorblindess,farsight,astigmatism,bodyresponse);
+
+
+                TheoryWindow theoryWindow = new TheoryWindow(firstname,lastname);
                 theoryWindow.setVisible(true);
 
-                // ปิดหน้าต่าง PhysicalWindow
                 PhysicalWindow.this.dispose();
             }
         });
 
     }
 
-    public static void main(String[] args) {
-        new PhysicalWindow().setVisible(true);
-    }
 }

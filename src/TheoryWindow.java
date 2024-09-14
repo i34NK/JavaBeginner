@@ -1,3 +1,4 @@
+import DBConnect.SaveTheory;
 import Test.TheoryTest;
 
 import javax.swing.*;
@@ -16,24 +17,30 @@ public class TheoryWindow extends JFrame {
     private JTextField giveawayTxt;
     private JButton OKButton3;
     private JLabel labelScore;
-    private String physicalResult;  // รับค่าผลจาก PhysicalWindow
+    private String physicalResult;
+    private String firstname;
+    private String lastname;
 
-    // ปรับ constructor เพื่อรับผลลัพธ์จาก PhysicalWindow
-    public TheoryWindow(String physicalResult) {
+    public TheoryWindow(String firstname, String lastname) {
         super("การทดสอบภาคทฤษฎี");
         this.physicalResult = physicalResult;
+        this.firstname = firstname;
+        this.lastname = lastname;
 
         panel3 = new JPanel();
         panel3.setLayout(new GridLayout(10, 2));
 
-
+        panel3.add(labelHead);
+        panel3.add(labelSign);
         signTxt = new JTextField();
+        panel3.add(labelLine);
         lineTxt = new JTextField();
+        panel3.add(labelGiveaway);
         giveawayTxt = new JTextField();
-        OKButton3 = new JButton("OK");
+        panel3.add(OKButton3);
 
         panel3.add(labelHead);
-        panel3.add(new JLabel("")); // Placeholder for spacing
+        panel3.add(new JLabel(""));
 
         panel3.add(labelSign);
         panel3.add(signTxt);
@@ -57,28 +64,24 @@ public class TheoryWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    // รับค่าคะแนนจาก TextField
                     int signScore = Integer.parseInt(signTxt.getText());
                     int lineScore = Integer.parseInt(lineTxt.getText());
                     int giveawayScore = Integer.parseInt(giveawayTxt.getText());
 
-                    // สร้างออบเจกต์ TheoryTest และตั้งค่าคะแนน
                     TheoryTest theoryTest = new TheoryTest();
                     theoryTest.setTrafficSignTest(signScore);
                     theoryTest.setTrafficLinesTest(lineScore);
                     theoryTest.setGiveWayTest(giveawayScore);
 
-                    // คำนวณผลลัพธ์ภาคทฤษฎี
                     int theoryTotalScore = signScore + lineScore + giveawayScore;  // คะแนนรวมภาคทฤษฎี
 
-                    // ตรวจสอบเงื่อนไขการผ่านการทดสอบภาคทฤษฎี
                     String theoryResult = (theoryTotalScore >= 120) ? "Pass" : "Failed";
 
-                    // ปิดหน้าต่าง TheoryWindow
+                    SaveTheory.saveTheory(signScore, lineScore, giveawayScore);
+
                     TheoryWindow.this.dispose();
 
-                    // ส่งค่าคะแนนไปยัง TotalScoreWindow รวมถึงผลลัพธ์จาก PhysicalWindow
-                    TotalScoreWindow totalScoreWindow = new TotalScoreWindow(physicalResult, theoryTotalScore, theoryResult);
+                    TotalScoreWindow totalScoreWindow = new TotalScoreWindow(physicalResult, theoryTotalScore, theoryResult,firstname,lastname);
                     totalScoreWindow.setVisible(true);
 
                 } catch (NumberFormatException ex) {

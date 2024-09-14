@@ -6,10 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         users = new ArrayList<Users>();
-        new FirstWindow().setVisible(true);  // เรียกใช้หน้าต่าง GUI และทำให้มันแสดงผล
-        //new TheoryWindow().setVisible(true);
-        //new PhysicalWindow().setVisible(true);
-
+        new FrontCover().setVisible(true);
 
 
     }

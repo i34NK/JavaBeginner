@@ -55,7 +55,7 @@
       </component>
       <component id="d734f" class="javax.swing.JButton" binding="OKbutton2">
         <constraints>
-          <grid row="5" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="OK"/>

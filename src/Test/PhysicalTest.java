@@ -7,6 +7,8 @@ public class PhysicalTest {
     private boolean AstigmatismTest;
     private boolean BodyResponseTest;
 
+
+
     public boolean isColorBlindessTest() {
         return ColorBlindessTest;
     }
