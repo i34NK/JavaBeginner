@@ -68,20 +68,30 @@ public class TheoryWindow extends JFrame {
                     int lineScore = Integer.parseInt(lineTxt.getText());
                     int giveawayScore = Integer.parseInt(giveawayTxt.getText());
 
+                    // ตรวจสอบว่าคะแนนไม่เกิน 50
+                    if (signScore > 50 || lineScore > 50 || giveawayScore > 50) {
+                        JOptionPane.showMessageDialog(null, "The score should not exceed 50.", "Error", JOptionPane.ERROR_MESSAGE);
+                        return;  // หยุดการทำงานหากมีคะแนนเกิน
+                    }
+
                     TheoryTest theoryTest = new TheoryTest();
                     theoryTest.setTrafficSignTest(signScore);
                     theoryTest.setTrafficLinesTest(lineScore);
                     theoryTest.setGiveWayTest(giveawayScore);
 
-                    int theoryTotalScore = signScore + lineScore + giveawayScore;  // คะแนนรวมภาคทฤษฎี
+                    // คำนวณคะแนนรวมภาคทฤษฎี
+                    int theoryTotalScore = signScore + lineScore + giveawayScore;
 
+                    // ตรวจสอบว่าผ่านหรือไม่
                     String theoryResult = (theoryTotalScore >= 120) ? "Pass" : "Failed";
 
+                    // บันทึกข้อมูลภาคทฤษฎี
                     SaveTheory.saveTheory(signScore, lineScore, giveawayScore);
 
                     TheoryWindow.this.dispose();
 
-                    TotalScoreWindow totalScoreWindow = new TotalScoreWindow(physicalResult, theoryTotalScore, theoryResult,firstname,lastname);
+                    // เปิดหน้าต่าง TotalScoreWindow และส่งค่าที่จำเป็น
+                    TotalScoreWindow totalScoreWindow = new TotalScoreWindow(physicalResult, theoryTotalScore, theoryResult, firstname, lastname);
                     totalScoreWindow.setVisible(true);
 
                 } catch (NumberFormatException ex) {
